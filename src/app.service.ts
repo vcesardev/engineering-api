@@ -18,8 +18,20 @@ export class AppService {
     return await this.bitcoinModel.find();
   }
 
-  async createManyBitcoinData(data: Bitcoin[]) {
-    return await this.bitcoinModel.insertMany(data);
+  async createManyMonthBitcoinData(data: Bitcoin[]) {
+    const updatedInfoData: Bitcoin[] = data.map((info) => {
+      const updatedInfo = { ...info, type: 'month' };
+      return updatedInfo;
+    });
+    return await this.bitcoinModel.insertMany(updatedInfoData);
+  }
+
+  async createManyDayBitcoinData(data: Bitcoin[]) {
+    const updatedInfoData: Bitcoin[] = data.map((info) => {
+      const updatedInfo = { ...info, type: 'day' };
+      return updatedInfo;
+    });
+    return await this.bitcoinModel.insertMany(updatedInfoData);
   }
 
   async createBitcoinData(data: Bitcoin) {

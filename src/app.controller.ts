@@ -19,9 +19,14 @@ export class AppController {
     return this.appService.getBitcoinData();
   }
 
-  @Post('many')
-  postManyData(@Body() data: Bitcoin[]) {
-    return this.appService.createManyBitcoinData(data);
+  @Post('many-month')
+  postManyMonthData(@Body() data: Bitcoin[]) {
+    return this.appService.createManyMonthBitcoinData(data);
+  }
+
+  @Post('many-day')
+  postManyDayData(@Body() data: Bitcoin[]) {
+    return this.appService.createManyDayBitcoinData(data);
   }
 
   @Post()

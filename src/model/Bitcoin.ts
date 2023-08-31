@@ -9,15 +9,17 @@ export const BitcoinSchema = new mongoose.Schema({
   price_high: { type: Number, required: true },
   price_low: { type: Number, required: true },
   price_close: { type: Number, required: true },
+  type: { type: String },
 });
 
 export type Bitcoin = {
-  time_period_start: number;
-  time_period_end: number;
-  time_open: number;
-  time_close: number;
+  time_period_start: string;
+  time_period_end: string;
+  time_open: string;
+  time_close: string;
   price_open: number;
   price_high: number;
   price_low: number;
   price_close: number;
+  type: string;
 };
