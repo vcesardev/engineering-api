@@ -15,8 +15,8 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getData(@Query('type') type: 'month' | 'day') {
-    return this.appService.getBitcoinData(type);
+  getData(@Query('filterBy') filterBy: 'month' | 'day') {
+    return this.appService.getBitcoinData(filterBy);
   }
 
   @Post('many-month')
