@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { BitcoinSchema } from './model/Bitcoin';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { BitcoinSchema } from './model/Bitcoin';
         schema: BitcoinSchema,
       },
     ]),
+    HttpModule,
   ],
   controllers: [AppController],
   providers: [AppService],
