@@ -14,8 +14,10 @@ export class AppService {
     private readonly bitcoinModel: mongoose.Model<Bitcoin>,
   ) {}
 
-  async getBitcoinData() {
-    return await this.bitcoinModel.find();
+  async getBitcoinData(type: 'month' | 'day') {
+    return await this.bitcoinModel.find({
+      type: type,
+    });
   }
 
   async createManyMonthBitcoinData(data: Bitcoin[]) {
