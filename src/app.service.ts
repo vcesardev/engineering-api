@@ -15,9 +15,11 @@ export class AppService {
   ) {}
 
   async getBitcoinData(type: 'month' | 'day') {
-    return await this.bitcoinModel.find({
-      type: type,
-    });
+    return await this.bitcoinModel
+      .find({
+        type: type,
+      })
+      .sort({ time_period_start: 1 });
   }
 
   async createManyMonthBitcoinData(data: Bitcoin[]) {
